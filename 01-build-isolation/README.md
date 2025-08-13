@@ -35,6 +35,18 @@ Build process has to run automatically, including when there is no Internet acce
 
 When pushing new changes to the repository, the image build should automatically start via Gitlab CI/CD. The build should successfully complete even without Internet access. After building, the image should be automatically saved to Nexus. Using the Nexus UI, you can see the uploaded image.
 
+<div align="center">
+
+  ![Result diagram dark](img/01-build-isolation-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/01-build-isolation-light.png#gh-light-mode-only)
+
+</div>
+
 ## Contacts
 
 Feel free to ask questions in [our Telegram chat](https://t.me/+nSELCyIX8ltlNjU6)! We will be happy to help🥰
