@@ -1,5 +1,17 @@
 # Кейс №1 - изоляция сборки
 
+<div align="center">
+
+  ![Result diagram dark](img/01-build-isolation-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/01-build-isolation-light.png#gh-light-mode-only)
+
+</div>
+
 - [Кейс №1 - изоляция сборки](#кейс-1---изоляция-сборки)
   - [Цель](#цель)
   - [Стэк](#стэк)

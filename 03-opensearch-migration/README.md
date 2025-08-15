@@ -1,5 +1,17 @@
 # Case №3 - Migration
 
+<div align="center">
+
+  ![Result diagram dark](img/03-opensearch-migration-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/03-opensearch-migration-light.png#gh-light-mode-only)
+
+</div>
+
 - [Case №3 - Migration](#case-3---migration)
   - [Goal](#goal)
   - [Stack](#stack)
@@ -44,7 +56,7 @@ When running the GET _cat/shards?v query, all shards of the index must have the 
 ### Checkpoints
 
 1. Deploy 2 clusters, each having 2+ OpenSearch nodes;
-2. Add permission in the opensearch.yml file to allow the use of a remote cluster for reindexing;
+2. Add permission in the `opensearch.yml` file to allow the use of a remote cluster for reindexing;
 3. Create an index in the target cluster with the same settings and mappings as the source cluster;
 4. Execute a [reindexing request](https://docs.opensearch.org/docs/latest/im-plugin/reindex-data/), specifying the source index on the remote cluster;
 5. Wait for the data transfer to complete.

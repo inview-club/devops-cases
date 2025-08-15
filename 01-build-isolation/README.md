@@ -1,5 +1,17 @@
 # Case #1 - Build Isolation
 
+<div align="center">
+
+  ![Result diagram dark](img/01-build-isolation-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/01-build-isolation-light.png#gh-light-mode-only)
+
+</div>
+
 - [Case #1 - Build Isolation](#case-1---build-isolation)
   - [Goal](#goal)
   - [Stack](#stack)
