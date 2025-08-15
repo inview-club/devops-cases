@@ -11,8 +11,8 @@
 Вы можете решать кейсы в следующем порядке:
 
 1. [Изоляция сборки](01-build-isolation/README-ru.md)
-2. [Очистка образов](02-image-cleanup/README.md)
-3. [Миграция OpenSearch](03-opensearch-migration/README.md)
+2. [Очистка образов](02-image-cleanup/README-ru.md)
+3. [Миграция OpenSearch](03-opensearch-migration/README-ru.md)
 
 ## Контакты
 
