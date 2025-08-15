@@ -2,13 +2,13 @@
 
 <div align="center">
 
-  ![Result diagram dark](img/02-image-cleanup-dark.png#gh-dark-mode-only)
+  ![Result diagram dark](img/03-opensearch-migration-dark.png#gh-dark-mode-only)
 
 </div>
 
 <div align="center">
 
-  ![Result diagram light](img/02-image-cleanup-light.png#gh-light-mode-only)
+  ![Result diagram light](img/03-opensearch-migration-light.png#gh-light-mode-only)
 
 </div>
 
