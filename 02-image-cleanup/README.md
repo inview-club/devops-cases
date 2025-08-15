@@ -1,5 +1,17 @@
 # Case №2 - Image Cleanup 🧹
 
+<div align="center">
+
+  ![Result diagram dark](img/02-image-cleanup-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/02-image-cleanup-light.png#gh-light-mode-only)
+
+</div>
+
 - [Case №2 - Image Cleanup 🧹](#case-2---image-cleanup-)
   - [Goal](#goal)
   - [Stack](#stack)
