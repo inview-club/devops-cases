@@ -17,7 +17,7 @@
 
 ## Чекпоинты
 
-1. Развернуть [кластер](https://docs.opensearch.org/latest/tuning-your-cluster/#advanced-step-7-set-up-a-hot-warm-architecture) из 3 нод со следующими настройками:
+1. Развернуть [кластер](https://docs.opensearch.org/latest/tuning-your-cluster/#advanced-step-7-set-up-a-hot-warm-architecture) из 5 нод со следующими настройками:
    - 1 master-нода
    - 4 data-ноды:
      - 2 ноды c атрибутом hot
