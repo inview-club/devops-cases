@@ -7,6 +7,18 @@
   - [Результат](#результат)
   - [Контакты](#контакты)
 
+<div align="center">
+
+  ![Result diagram dark](img/04-opensearch-hot-warm-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/04-opensearch-hot-warm-light.png#gh-light-mode-only)
+
+</div>
+
 ## Цель
 
 Для экономии места при хранении логов, необходимо подготовить архитектуру и настроить жизненный цикл индексов с логами.

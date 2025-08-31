@@ -7,6 +7,18 @@
   - [Result](#result)
   - [Contacts](#contacts)
 
+<div align="center">
+
+  ![Result diagram dark](img/04-opensearch-hot-warm-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/04-opensearch-hot-warm-light.png#gh-light-mode-only)
+
+</div>
+
 ## Goal
 
 To save space when storing logs, prepare an architecture and set up the index lifecycle for log storage.
