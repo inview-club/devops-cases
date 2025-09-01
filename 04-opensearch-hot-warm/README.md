@@ -1,12 +1,5 @@
 # Case #4 – Hot-Warm Architecture
 
-- [Case #4 – Hot-Warm Architecture](#case-4--hot-warm-architecture)
-  - [Goal](#goal)
-  - [Stack](#stack)
-  - [Checkpoints](#checkpoints)
-  - [Result](#result)
-  - [Contacts](#contacts)
-
 <div align="center">
 
   ![Result diagram dark](img/04-opensearch-hot-warm-dark.png#gh-dark-mode-only)
@@ -18,6 +11,13 @@
   ![Result diagram light](img/04-opensearch-hot-warm-light.png#gh-light-mode-only)
 
 </div>
+
+- [Case #4 – Hot-Warm Architecture](#case-4--hot-warm-architecture)
+  - [Goal](#goal)
+  - [Stack](#stack)
+  - [Checkpoints](#checkpoints)
+  - [Result](#result)
+  - [Contacts](#contacts)
 
 ## Goal
 
