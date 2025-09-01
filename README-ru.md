@@ -6,9 +6,9 @@
 
 Все наши кейсы можно реализовать локально, имея только время и умение гуглить. Они послужат хорошей практикой для ваших резюме и знаний, могут быть полезны для рассказа о себе на собеседованиях.
 
-<img align="right" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3o5NzBrMHpyZ2ppYTdkZ29icWYwcm8xNGRkNzNnODZqcnB0YjYzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1Pn9VCFR6LxWDJaTvq/giphy.gif" width="17%" alt="work"> 
-
 ## Актуальные кейсы
+
+<img align="right" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3o5NzBrMHpyZ2ppYTdkZ29icWYwcm8xNGRkNzNnODZqcnB0YjYzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1Pn9VCFR6LxWDJaTvq/giphy.gif" width="15%" alt="work"> 
 
 Вы можете решать кейсы в следующем порядке:
 
