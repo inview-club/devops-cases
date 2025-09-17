@@ -1,10 +1,10 @@
 # Case #5 - WhiteSpots
 
 ## Goal
-To get acquainted with a tool for analyzing vulnerabilities in repositories. To study the possibilities of integrating WhiteSpots with other tools.
+To improve project security and accelerate vulnerability detection, you need to configure the tool and integrate it with existing systems.
 
 ## Stack
-WhiteSpots (https://whitespots.io)
+![WhiteSpots Badge] (https://img.shields.io/badge/Whitespots-b048d9?style=flat-square)
 
 ## Checkpoints
 1.  Install [AppSec Portal](https://docs.whitespots.io/appsec-portal/deployment/installation) and [Auditor](https://docs.whitespots.io/auditor/deployment/installation). ([Install via Docker Compose](#note-installation-via-docker-compose))

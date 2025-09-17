@@ -1,10 +1,10 @@
 # Кейс № 5 - WhiteSpots
 
 ## Цель
-Знакомство с инструментом для анализа уязвимостей в репозиториях. Изучение возможностей интеграции Whitespots с другими инструментами.
+Для улучшения безопасности проектов и ускоренного обнаружения уязвимостей необходимо настроить инструмент и провести его интеграцию с существующими системами.
 
 ## Стэк
-WhiteSpots (https://whitespots.io)
+![WhiteSpots Badge] (https://img.shields.io/badge/Whitespots-b048d9?style=flat-square)
 
 ## Чекпоинты
 1. Произвести установку [AppSec Portal](https://docs.whitespots.io/appsec-portal/deployment/installation) и [Auditor](https://docs.whitespots.io/auditor/deployment/installation). ([Установка через Docker Compose](#замечание-установка-через-docker-compose))
