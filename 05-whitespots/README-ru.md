@@ -4,7 +4,7 @@
 Для улучшения безопасности проектов и ускоренного обнаружения уязвимостей необходимо настроить инструмент и провести его интеграцию с существующими системами.
 
 ## Стэк
-![WhiteSpots Badge] (https://img.shields.io/badge/Whitespots-b048d9?style=flat-square)
+![WhiteSpots Badge](https://img.shields.io/badge/Whitespots-b048d9.png?style=flat-square)
 
 ## Чекпоинты
 1. Произвести установку [AppSec Portal](https://docs.whitespots.io/appsec-portal/deployment/installation) и [Auditor](https://docs.whitespots.io/auditor/deployment/installation). ([Установка через Docker Compose](#замечание-установка-через-docker-compose))

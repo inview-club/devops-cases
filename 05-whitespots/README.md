@@ -4,7 +4,7 @@
 To improve project security and accelerate vulnerability detection, you need to configure the tool and integrate it with existing systems.
 
 ## Stack
-![WhiteSpots Badge] (https://img.shields.io/badge/Whitespots-b048d9?style=flat-square)
+![WhiteSpots Badge](https://img.shields.io/badge/Whitespots-b048d9.png?style=flat-square)
 
 ## Checkpoints
 1.  Install [AppSec Portal](https://docs.whitespots.io/appsec-portal/deployment/installation) and [Auditor](https://docs.whitespots.io/auditor/deployment/installation). ([Install via Docker Compose](#note-installation-via-docker-compose))
