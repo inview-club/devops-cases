@@ -1,7 +1,7 @@
 # Case #5 - WhiteSpots
 
 ## Goal
-To improve project security and accelerate vulnerability detection, you need to configure the tool and integrate it with existing systems.
+To improve project security and accelerate vulnerability detection, it is necessary to set up a platform that includes various static analysis tools and integrate it with existing systems.
 
 ## Stack
 ![WhiteSpots Badge](https://img.shields.io/badge/Whitespots-b048d9.png?style=flat-square)
