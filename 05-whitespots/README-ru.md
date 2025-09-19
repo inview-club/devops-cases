@@ -4,7 +4,9 @@
 Для улучшения безопасности проектов и ускоренного обнаружения уязвимостей необходимо настроить платформу, включающую в себя различные инструменты статического анализа и провести её интеграцию с существующими системами.
 
 ## Стэк
-![WhiteSpots Badge](https://img.shields.io/badge/Whitespots-b048d9.png?style=flat-square)
+![WhiteSpots Badge](https://img.shields.io/badge/Whitespots-b048d9.png?style=for-the-badge)
+![Gitlab](https://img.shields.io/badge/Gitlab-FC6D26.svg?style=for-the-badge&logo=gitlab&logoColor=white)
+![IDE](https://img.shields.io/badge/IDE-8a8a8a.svg?style=for-the-badge)
 
 ## Чекпоинты
 1. Произвести установку [AppSec Portal](https://docs.whitespots.io/appsec-portal/deployment/installation) и [Auditor](https://docs.whitespots.io/auditor/deployment/installation). ([Установка через Docker Compose](#замечание-установка-через-docker-compose))

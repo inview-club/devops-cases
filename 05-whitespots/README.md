@@ -4,7 +4,9 @@
 To improve project security and accelerate vulnerability detection, it is necessary to set up a platform that includes various static analysis tools and integrate it with existing systems.
 
 ## Stack
-![WhiteSpots Badge](https://img.shields.io/badge/Whitespots-b048d9.png?style=flat-square)
+![WhiteSpots Badge](https://img.shields.io/badge/Whitespots-b048d9.png?style=for-the-badge)
+![Gitlab](https://img.shields.io/badge/Gitlab-FC6D26.svg?style=for-the-badge&logo=gitlab&logoColor=white)
+![IDE](https://img.shields.io/badge/IDE-8a8a8a.svg?style=for-the-badge)
 
 ## Checkpoints
 1.  Install [AppSec Portal](https://docs.whitespots.io/appsec-portal/deployment/installation) and [Auditor](https://docs.whitespots.io/auditor/deployment/installation). ([Install via Docker Compose](#note-installation-via-docker-compose))
