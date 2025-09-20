@@ -1,0 +1,43 @@
+# Кейс № 5 - WhiteSpots
+
+## Цель
+Для улучшения безопасности проектов и ускоренного обнаружения уязвимостей необходимо настроить платформу, включающую в себя различные инструменты статического анализа и провести её интеграцию с существующими системами.
+
+## Стэк
+![WhiteSpots Badge](https://img.shields.io/badge/Whitespots-b048d9.png?style=for-the-badge)
+![Gitlab](https://img.shields.io/badge/Gitlab-FC6D26.svg?style=for-the-badge&logo=gitlab&logoColor=white)
+![IDE](https://img.shields.io/badge/IDE-8a8a8a.svg?style=for-the-badge)
+
+## Чекпоинты
+1. Произвести установку [AppSec Portal](https://docs.whitespots.io/appsec-portal/deployment/installation) и [Auditor](https://docs.whitespots.io/auditor/deployment/installation). ([Установка через Docker Compose](#замечание-установка-через-docker-compose))
+2. Начальная настройка:
+	- [Связать](https://docs.whitespots.io/appsec-portal/features/vulnerability-discovery/auditor-settings/auditor-config) портал с Аудитором.
+	- Добавить SSH ключ.
+3. Проверка репозиториев:
+	- Добавить любой репозиторий из [списка](https://gitlab.com/whitespots-public/vulnerable-apps). Запустить аудит. Проанализировать найденные уязвимости.
+	- Добавить репозиторий со своим пет-проектом (Github, Gitlab). Провести аудит.
+4. Интеграция с IDE:
+	- Установите расширение для вашей IDE.
+	- Склонируйте любой репозиторий с уязвимостями. Верифицируйте найденные уязвимости через портал. Проследите их отображение в исходном коде в IDE.
+5. Интеграция с CI/CD:
+	- Встроить в CI/CD любого своего репозитория.
+6. Уведомления
+	- Добавьте [интеграцию](https://docs.whitespots.io/appsec-portal/general-portal-settings/notification-settings/integration) для уведомлений в Telegram.
+	- Настройте реагирование на любое событие (например - изменение статуса уязвимости) и проверьте работоспособность уведомлений.
+
+
+## Замечание. Установка через Docker Compose
+Если вы используете Docker Compose для установки Whitespots и разворачиваете портал и аудитор на одном устройстве, то вам необходимо внести следующие изменения:
+- В``docker-compose.yml`` файлах портала и аудитора для каждого контейнера необходимо дописать:
+```
+extra_hosts:
+      - "host.docker.internal:host-gateway"
+```
+- В настройках портала указать адрес аудитора: ``http://host.docker.internal:8080/`` и внешний адрес портала: ``http://host.docker.internal/``
+Все остальные шаги выполняются как указано в документации.
+
+## Результат
+- Аудитор связан с AppSec порталом.
+- При запуске аудита найденные уязвимости отображаются в Findings.
+- После верификации уязвимостей они отображаются в Дашборде, подсвечиваются в IDE.
+- В Телеграм отправляются уведомления (например - об изменении статуса уязвимости).
