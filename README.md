@@ -16,7 +16,7 @@ You can solve our cases in the next order:
 2. [Image Cleanup](02-image-cleanup/README.md)
 3. [OpenSearch: Migration ](03-opensearch-migration/README.md)
 4. [OpenSearch: Hot-Warm Architecture](04-opensearch-hot-warm/README.md)
-
+5. [Whitespots](05-whitespots/README.md)
 ## Contacts
 
 Any questions that arise while solving a case can be asked in [our Telegram chat](https://t.me/+nSELCyIX8ltlNjU6) ❤️
