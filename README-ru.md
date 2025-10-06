@@ -16,6 +16,8 @@
 2. [Очистка образов](02-image-cleanup/README-ru.md)
 3. [OpenSearch: Миграция](03-opensearch-migration/README-ru.md)
 4. [Opensearch: Hot-Warm архитектура](04-opensearch-hot-warm/README-ru.md)
+5. [Whitespots](05-whitespots/README-ru.md)
+6. [Observability & Karma](06-observability-karma/README-ru.md)
 
 ## Контакты
 
