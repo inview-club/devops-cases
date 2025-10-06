@@ -17,6 +17,8 @@ You can solve our cases in the next order:
 3. [OpenSearch: Migration ](03-opensearch-migration/README.md)
 4. [OpenSearch: Hot-Warm Architecture](04-opensearch-hot-warm/README.md)
 5. [Whitespots](05-whitespots/README.md)
+6. [Observability & Karma](06-observability-karma/README.md)
+
 ## Contacts
 
 Any questions that arise while solving a case can be asked in [our Telegram chat](https://t.me/+nSELCyIX8ltlNjU6) ❤️
