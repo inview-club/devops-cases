@@ -21,7 +21,7 @@
 
 ## Goal
 
-Deploy a fully local infrastructure (Postgres + Redis + n8n + Ollama), connect an LLM to n8n, and create a workflow that enables chatting with an agent while preserving conversation context (memory) in the database.
+Give the ML engineering team the opportunity not to depend on external web services, as well as to modify, install and work with their local models.
 
 ## Stack
 
