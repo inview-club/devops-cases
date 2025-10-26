@@ -18,6 +18,7 @@
 4. [Opensearch: Hot-Warm архитектура](04-opensearch-hot-warm/README-ru.md)
 5. [Whitespots](05-whitespots/README-ru.md)
 6. [Observability & Karma](06-observability-karma/README-ru.md)
+7. [n8n & Ollama](07-n8n-ollama/README-ru.md)
 
 ## Контакты
 
