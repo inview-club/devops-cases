@@ -18,6 +18,7 @@ You can solve our cases in the next order:
 4. [OpenSearch: Hot-Warm Architecture](04-opensearch-hot-warm/README.md)
 5. [Whitespots](05-whitespots/README.md)
 6. [Observability & Karma](06-observability-karma/README.md)
+7. [n8n & Ollama](07-n8n-ollama/README.md)
 
 ## Contacts
 
