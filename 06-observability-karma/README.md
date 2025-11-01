@@ -50,6 +50,7 @@ When setting up observability, the familiar outdated Alertmanager interface can 
    - For Linux installation, refer to the official [documentation](https://prometheus.io/docs/guides/node-exporter/).
    - Ensure you have a dashboard in Grafana to view Node Exporter metrics. If not, use the [dashboard search](https://grafana.com/grafana/dashboards/) and import one.
    - Ensure vmagent is configured to collect metrics from Node Exporter.
+   - **Alternative**: Instead of Node Exporter, you can use [Grafana Alloy](https://github.com/grafana/alloy). This might be a bit harder to set up but offers more advanced features and a more modern approach to metrics collection.
 5. Configure some basic alerting rules:
    - Most likely, if you installed Victoria Metrics using one of the manuals, you will already have preconfigured rules.
    - For inspiration, you can use sources like:
