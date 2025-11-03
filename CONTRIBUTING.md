@@ -33,7 +33,7 @@ That’s all! Your pull request counts as your solution submission. We’ll give
 
 ## 📬 Communication & support
 
-- If you have questions while working on a case, feel free to **ask in our Telegram chat** (linked in README)  
+- If you have questions while working on a case, feel free to [**ask in our Telegram chat**](https://t.me/+nSELCyIX8ltlNjU6)
 - In your PR, you can also leave a comment or tag maintainers if you need guidance  
 - You’re welcome to link to your PR in our social / community channel so others can see and comment  
 
