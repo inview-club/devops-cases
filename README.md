@@ -22,7 +22,7 @@ You can solve our cases in the next order:
 
 ## 🗝️ How to submit a solution on GitHub
 
-Each case folder has a solutions subdirectory where you can add your solution and get feedback by creating a pull request.
+Each case folder has a solutions subdirectory where you can add your solution and get feedback by creating a pull request. Learn more about how to submit solutions in CONTRIBUTING.md.
 
 ## 🤝 Contacts
 
