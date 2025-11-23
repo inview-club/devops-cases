@@ -1,0 +1,16 @@
+cluster.name: inview-cluster
+network.host: 0.0.0.0
+bootstrap.memory_lock: "true"
+
+plugins.security.ssl.transport.pemcert_filepath: /usr/share/opensearch/config/certs/node1.pem
+plugins.security.ssl.transport.pemkey_filepath: /usr/share/opensearch/config/certs/node1-key.pem
+plugins.security.ssl.transport.pemtrustedcas_filepath: /usr/share/opensearch/config/certs/root-ca.pem
+plugins.security.ssl.transport.enforce_hostname_verification: false
+plugins.security.ssl.http.enabled: true
+plugins.security.ssl.http.pemcert_filepath: /usr/share/opensearch/config/certs/node1.pem
+plugins.security.ssl.http.pemkey_filepath: /usr/share/opensearch/config/certs/node1-key.pem
+plugins.security.ssl.http.pemtrustedcas_filepath: /usr/share/opensearch/config/certs/root-ca.pem
+plugins.security.authcz.admin_dn: 
+  - 'CN=ADMIN,OU=INVIEW,O=INVIEW,L=SPB,ST=SPB,C=RU'
+plugins.security.nodes_dn:
+  - 'CN=inview,OU=INVIEW,O=INVIEW,L=SPB,ST=SPB,C=RU'

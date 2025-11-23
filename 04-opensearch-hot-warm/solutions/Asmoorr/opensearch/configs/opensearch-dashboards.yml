@@ -1,0 +1,12 @@
+server.name: opensearch-dashboard
+server.host: "0.0.0.0"
+
+opensearch.username: "admin"
+opensearch.password: "admin"
+
+# Encrypt traffic between the browser and OpenSearch-Dashboards
+server.ssl.enabled: false
+
+# Encrypt traffic between OpenSearch-Dashboards and Opensearch
+opensearch.ssl.certificateAuthorities: ["/usr/share/opensearch-dashboards/config/certificates/root-ca.pem"]
+opensearch.ssl.verificationMode: full

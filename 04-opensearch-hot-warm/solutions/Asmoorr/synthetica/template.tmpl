@@ -1,0 +1,8 @@
+{
+  "timestamp": "{{date}}",
+  "level": "{{oneOf "INFO" "WARN" "ERROR" "DEBUG"}}",
+  "service": "{{oneOf "auth-service" "payment-service" "user-service" "order-service"}}",
+  "message": "{{oneOf "User login successful" "User login failed" "Payment processed" "Payment declined" "Order created" "Order cancelled" "Database connection error" "Cache miss detected"}}",
+  "host": "{{oneOf "server-1" "server-2" "server-3" "server-4"}}",
+  "trace_id": "{{uuid}}"
+}

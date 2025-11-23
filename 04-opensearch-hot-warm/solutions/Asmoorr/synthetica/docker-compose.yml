@@ -1,0 +1,16 @@
+services:
+  synthetica:
+    image: inviewteam/synthetica
+    container_name: synthetica
+    volumes:
+      - ./config.json:/etc/synthetica/config.json
+      - ./template.tmpl:/etc/synthetica/template.tmpl
+      - ./elkcer.pem:/etc/synthetica/elkcer.crt
+      - ./elkcer.key:/etc/synthetica/elkcer.key
+    networks:
+      - default
+      
+networks:
+  default:
+    name: opensearch-net
+    external: true
