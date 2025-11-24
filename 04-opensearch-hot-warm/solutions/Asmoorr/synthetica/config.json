@@ -1,0 +1,14 @@
+{
+  "workers": 1,
+  "documents_amount": 10000,
+  "iterations": 100,
+  "body_template_file": "template.tmpl",
+  "opensearch": {
+    "index": "logs",
+    "nodes": ["https://opensearch-master:9200"],
+    "credentials": {
+      "username": "admin",
+      "password": "admin"
+    }
+  }
+}
