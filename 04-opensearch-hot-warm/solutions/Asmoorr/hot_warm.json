@@ -1,0 +1,88 @@
+{
+  "policy": {
+    "policy_id": "hot_warm",
+    "description": "A sample description of the policy",
+    "last_updated_time": 1763930956241,
+    "schema_version": 21,
+    "error_notification": null,
+    "default_state": "hot",
+    "states": [
+      {
+        "name": "hot",
+        "actions": [
+          {
+            "retry": {
+              "count": 3,
+              "backoff": "exponential",
+              "delay": "1m"
+            },
+            "rollover": {
+              "min_size": "100mb",
+              "min_index_age": "1m",
+              "copy_alias": false
+            }
+          }
+        ],
+        "transitions": [
+          {
+            "state_name": "warm",
+            "conditions": {
+              "min_index_age": "1m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "warm",
+        "actions": [
+          {
+            "retry": {
+              "count": 3,
+              "backoff": "exponential",
+              "delay": "1m"
+            },
+            "allocation": {
+              "require": {
+                "temp": "warm"
+              },
+              "include": {},
+              "exclude": {},
+              "wait_for": false
+            }
+          }
+        ],
+        "transitions": [
+          {
+            "state_name": "delete",
+            "conditions": {
+              "min_index_age": "1m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "delete",
+        "actions": [
+          {
+            "retry": {
+              "count": 3,
+              "backoff": "exponential",
+              "delay": "1m"
+            },
+            "delete": {}
+          }
+        ],
+        "transitions": []
+      }
+    ],
+    "ism_template": [
+      {
+        "index_patterns": [
+          "logs*"
+        ],
+        "priority": 1,
+        "last_updated_time": 1763930956241
+      }
+    ]
+  }
+}

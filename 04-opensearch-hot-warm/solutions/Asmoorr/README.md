@@ -33,61 +33,60 @@ According to the instruction run all the services from Dockercompose file and ru
 > ```
 >
 > 3. Go to Page opensearch-dashboard (<http://localhost:5601>) and enter with credentials (admin, admin)
-> ```
 
 securityadmin initializes the OpenSearch Security plugin for the cluster. Without this step the master node keeps
 printing `Not yet initialized (you may need to run securityadmin)` and the cluster runs with a temporary default
 security configuration
 
-![run dockercompose](imgs/image.png)
-![run securityadmin 1](imgs/image-1.png)
-![run securityadmin 2](imgs/image-2.png)
+![run dockercompose](imgs/run-dockercompose.png)
+![run securityadmin 1](imgs/run-securityadmin-1.png)
+![run securityadmin 2](imgs/run-securityadmin-2.png)
 
 Now we can go to web interface and start working with OpenSearch UI
 
 After logging with standard `admin` `admin` credentials
 
-![logging](imgs/image-3.png)
+![logging](imgs/logging.png)
 
 Go to `Management` -> `Index Management` and here we can see our State management policies, in our case:) this is
 `hot_warm ` one
 
-![index management](imgs/image-4.png)
+![index management](imgs/index-management.png)
 
 Clicking on it, we can manage whole workflow. There are 3 sections:
 
 1. First
-   ![first](imgs/image-8.png)
+   ![first](imgs/first.png)
    In the first section we see the **Policy settings** for the `hot_warm` policy. This page shows the policy identifier,
    description, default state (`hot`), current schema or sequence numbers, last updated time and optional error
    notification settings
 
 
 2. Second
-   ![second](imgs/image-9.png)
+   ![second](imgs/second.png)
    The second section is **ISM templates**. Here we define which indexes or data streams will automatically use this
    policy. In my case the template contains an index pattern that matches `logs` indexes and a priority value, so every
    new backing index created for the `logs` data stream automatically gets the `hot_warm` policy attached
 
 
 3. Third, main
-   ![third 1](imgs/image-10.png)
-   ![third 2](imgs/image-11.png)
+   ![third 1](imgs/third-1.png)
+   ![third 2](imgs/third-2.png)
    The third, main section shows the **States** of the policy. It visualises the lifecycle of an index: it starts in the
    `hot` state, where a rollover action is triggered after the index reaches the configured age and size, then
    transitions to the `warm` state, and finally goes to the `delete` state, where the index is removed
 
 Also, we can check out created Data stream `logs`
-![datasteram](imgs/image-12.png)
+![datasteram](imgs/datasteram.png)
 
 This is created template `logs`
 
-![template](imgs/image-14.png)
+![template](imgs/template.png)
 
 To be completely agreed with the given task in workshop, I created two extra containers with warm & hot nodes, so now we
 have 5 of them:
-![alt text](imgs/image-13.png)
+![extra-nodes](imgs/extra-nodes.png)
 
 And finally we can see green indexes in `Indexes` page:
 
-![alt text](imgs/image-15.png)
+![indexes](imgs/indexes.png)
