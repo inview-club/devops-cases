@@ -37,7 +37,8 @@ docker compose up -d
 В интерфейсе n8n были добавлены credentials для Ollama со следующими параметрами:
 	•	Base URL: http://ollama:11434
 
-Соединение было успешно протестировано.
+Соединение было успешно протестировано
+
 <img width="482" height="266" alt="Снимок экрана 2025-12-21 в 9 35 00 AM" src="https://github.com/user-attachments/assets/3cc74ae8-cb74-4941-afec-1d06ab68ca24" />
 
 <img width="497" height="577" alt="Снимок экрана 2025-12-21 в 9 35 21 AM" src="https://github.com/user-attachments/assets/4f03267b-df51-466f-869c-022fe31a230e" />
