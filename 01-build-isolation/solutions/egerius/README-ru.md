@@ -3,6 +3,8 @@
 Выполнил (и переоценил свои силы) Янин Егор
 
 Это история о том, как простая на вид задача может затянуться на несколько недель из-за неочевидных моментов.
+![problems](https://github.com/user-attachments/assets/3cde370f-4080-467a-9310-622d3d61e56d)
+
 
 ### Начало
 
@@ -87,4 +89,10 @@ push-image:
     - echo "$NEXUS_PASSWORD" | docker login 192.168.1.104:5000 -u "$NEXUS_USER" --password-stdin
     - docker push 192.168.1.104:5000/$IMAGE_NAME:$IMAGE_TAG
 ```
+Nexus репохитории:
+<img width="1548" height="544" alt="image" src="https://github.com/user-attachments/assets/09022ae3-b0ab-4fca-b78b-a3e9875d5230" />
+`docker-hosted` содержит образы `demo-app`  
+`docker-proxy` проксирует docker, чтобы иметь доступ к образам даже офлайн  
+`go-proxy` проксирует Golang, чтобы зависимости кэшировались и были доступны  
 
+Pipeline проходит даже без интернета на машине runner, так что я считаю, что кейс выполнен.
