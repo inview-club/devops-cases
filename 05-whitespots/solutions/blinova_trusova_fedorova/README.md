@@ -82,6 +82,15 @@
    <img width="1323" height="866" alt="image" src="https://github.com/user-attachments/assets/4ac73e5a-3301-4582-b149-010ac23a0de7" />
 
 
+## Пункт 4
+### Интеграция с IDE
+1. Переходим в настройки портала. Там ищем токен для интеграции
+2. Установливаю расширение для IDE (у меня получилось только VScode), в настройках расширения указываю URL портала и API токен.
+   <img width="1023" height="765" alt="image" src="https://github.com/user-attachments/assets/c986a3ba-70e4-4019-884e-0c641fcef42c" />
+(настройки не покажу, так как там видно токен)
+4. Этот репозиторий уже склонирован в IDE, так как это был pet-проект, поэтому просто обновляю окно
+5. Теперь есть сбоку слева плашка с Whitespots. Видно Findings. Если нажать на какую-то уязвимость, то она красиво будет подчеркнута
+   <img width="3024" height="1924" alt="image" src="https://github.com/user-attachments/assets/0daadf13-9914-4fd1-a859-223592a762e4" />
 
     
 
