@@ -62,10 +62,13 @@
 14. Меняем Internal Portal URL на `http://host.docker.internal/`, кликнув на Workflow Settings.
     
 ## Пункт 2
+### Добавление SSH ключа
 1. Добавляем приватный ключ (БЕЗ ПАРОЛЯ, иначе в findings ничего не будет видно, это было выявлено при многократных попытках сделать лабу...).
     <img width="1126" height="687" alt="Screenshot 2025-12-25 at 17 51 42" src="https://github.com/user-attachments/assets/9d482e9b-2f6c-4402-8a28-f648e28630be" />
     <img width="1512" height="912" alt="Screenshot 2025-12-25 at 17 49 07" src="https://github.com/user-attachments/assets/65d9305d-3bf3-41c1-a1ec-7386e0f9239e" />
 (вот это покажу, а ключи нет)
+
+## Пункт 3
 
 
     
