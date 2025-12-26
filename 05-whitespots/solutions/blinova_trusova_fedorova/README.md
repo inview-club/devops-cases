@@ -69,6 +69,18 @@
 (вот это покажу, а ключи нет)
 
 ## Пункт 3
+### Добавление репозиториев и сканирование
+1. Переходим во вкладку Assets - Repositories.
+   <img width="1333" height="869" alt="Screenshot 2025-12-25 at 17 57 55" src="https://github.com/user-attachments/assets/6c882377-dd65-4176-a248-6bfa144428ab" />
+3. Добавляем новый репозиторий , указав URL для клонирования по SSH. (Я добавила проект, который мы делали в рамках дисциплины "Программирование")
+   <img width="1512" height="910" alt="image" src="https://github.com/user-attachments/assets/b4f54139-3e80-48ff-9e9e-9bc26d5790d1" />
+<img width="1334" height="865" alt="image" src="https://github.com/user-attachments/assets/ab1463b2-e935-4a31-b262-ac7e2e219f8f" />
+5. Выбираю репозиторий и запускаю аудит.
+6. После аудита смотрю найденные уязвимости в Findings. Подтверждаю некоторые.
+   <img width="1322" height="862" alt="image" src="https://github.com/user-attachments/assets/b1dc03fd-984f-4185-be29-0f4a463ff6e6" />
+   <img width="1311" height="868" alt="image" src="https://github.com/user-attachments/assets/67021a11-ae23-4582-aeeb-656aae370e16" />
+   <img width="1323" height="866" alt="image" src="https://github.com/user-attachments/assets/4ac73e5a-3301-4582-b149-010ac23a0de7" />
+
 
 
     
