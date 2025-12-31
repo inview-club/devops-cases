@@ -78,6 +78,17 @@ I did the integration with vscode through the extension marketplace in vscode
 
 ![integration](integration.jpg)
 
+After that, we have to set the extension settings in the idea using the URL and token that we have
+
+![IDE](app_ide.png)
+
+then we test with 
+https://gitlab.com/whitespots-public/vulnerable-apps/python-public-example
+
+and now we can directly see the vulnerabilities that exist in the projects we have
+
+![ideaudit](ide_audit.png)
+
 ## Conclusion
 
 I learned how to install and configure Whitespots. I also learned how to audit our projects through Whitespots.
