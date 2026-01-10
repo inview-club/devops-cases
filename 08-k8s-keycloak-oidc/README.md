@@ -1,7 +1,5 @@
 # Case #8 - Kubernetes: user identification (Keycloak + OIDC)
 
-[![Author](https://img.shields.io/badge/sanchpet-000000.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sanchpet)
-
 <div align="center">
 
   ![Result diagram dark](img/08-k8s-keycloak-oidc-dark.png#gh-dark-mode-only)
@@ -21,6 +19,8 @@
   - [Result](#result)
   - [Contacts](#contacts)
     - [Authors](#authors)
+
+[![Author](https://img.shields.io/badge/sanchpet-000000.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sanchpet)
 
 ## Goal
 
