@@ -1,5 +1,12 @@
 # 💼 Inview Club Cases 💼
 
+- [💼 Inview Club Cases 💼](#-inview-club-cases-)
+  - [👉 What's this?](#-whats-this)
+  - [👨‍💻 Current cases](#-current-cases)
+  - [🗝️ How to submit a solution on GitHub](#️-how-to-submit-a-solution-on-github)
+  - [🤝 Contacts](#-contacts)
+  - [🌟 Star History](#-star-history)
+
 ## 👉 What's this?
 
 Problems, tasks, and ideas we have encountered through our experience working as DevOps engineers.
@@ -29,3 +36,7 @@ Each case folder has a solutions subdirectory where you can add your solution an
 Any questions that arise while solving a case can be asked in our [Telegram chat](https://t.me/+nSELCyIX8ltlNjU6) ❤️
 
 You can also send a link to the PR with your soltuion in the chat, so that the organizers and other participants can see it faster and be able to discuss and give feedback.
+
+## 🌟 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=inview-club/devops-cases&type=date&legend=top-left)](https://www.star-history.com/#inview-club/devops-cases&type=date&legend=top-left)
