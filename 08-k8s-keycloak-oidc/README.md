@@ -1,4 +1,4 @@
-# Case №7 - Kubernetes: user identification (Keycloak + OIDC)
+# Case #8 - Kubernetes: user identification (Keycloak + OIDC)
 
 <div align="center">
 
@@ -12,7 +12,7 @@
 
 </div>
 
-- [Case №7 - Kubernetes: user identification (Keycloak + OIDC)](#case-7---kubernetes-user-identification-keycloak--oidc)
+- [Case #8 - Kubernetes: user identification (Keycloak + OIDC)](#case-8---kubernetes-user-identification-keycloak--oidc)
   - [Goal](#goal)
   - [Stack](#stack)
   - [Checkpoints](#checkpoints)

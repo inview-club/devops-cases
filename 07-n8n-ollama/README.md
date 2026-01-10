@@ -1,4 +1,4 @@
-# Case №7 - n8n & Ollama
+# Case #7 - n8n & Ollama
 
 <div align="center">
 
@@ -12,7 +12,7 @@
 
 </div>
 
-- [Case №7 - n8n \& Ollama](#case-7---n8n--ollama)
+- [Case #7 - n8n \& Ollama](#case-7---n8n--ollama)
   - [Goal](#goal)
   - [Stack](#stack)
   - [Checkpoints](#checkpoints)
