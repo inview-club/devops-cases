@@ -1,6 +1,6 @@
 # Case #8 - Kubernetes: user identification (Keycloak + OIDC)
 
-[![Author](https://img.shields.io/badge/author-Aleksandr%20Petrov%20(sanchpet)-brightgreen.svg?style=for-the-badge)](https://github.com/sanchpet)
+[![Author](https://img.shields.io/badge/sanchpet-000000.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sanchpet)
 
 <div align="center">
 
