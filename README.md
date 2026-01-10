@@ -26,6 +26,7 @@ You can solve our cases in the next order:
 5. [Whitespots](05-whitespots/README.md)
 6. [Observability & Karma](06-observability-karma/README.md)
 7. [n8n & Ollama](07-n8n-ollama/README.md)
+8. [Kubernetes: user identification (Keycloak + OIDC)](08-k8s-keycloak-oidc)
 
 ## 🗝️ How to submit a solution on GitHub
 
