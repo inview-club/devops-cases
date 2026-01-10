@@ -1,5 +1,7 @@
 # Case #8 - Kubernetes: user identification (Keycloak + OIDC)
 
+[![Author](https://img.shields.io/badge/author-Aleksandr%20Petrov%20(sanchpet)-brightgreen.svg)](https://github.com/sanchpet)
+
 <div align="center">
 
   ![Result diagram dark](img/08-k8s-keycloak-oidc-dark.png#gh-dark-mode-only)
@@ -18,6 +20,7 @@
   - [Checkpoints](#checkpoints)
   - [Result](#result)
   - [Contacts](#contacts)
+    - [Authors](#authors)
 
 ## Goal
 
@@ -78,3 +81,7 @@ If the kube-apiserver audit log is enabled, every engineer’s actions can be un
 ## Contacts
 
 Need help? Message us in our [Telegram chat](https://t.me/+nSELCyIX8ltlNjU6)!
+
+### Authors
+
+- **Author of this case:** Aleksandr Petrov - [sanchpet](https://github.com/sanchpet)
