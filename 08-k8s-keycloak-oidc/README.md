@@ -83,6 +83,7 @@ If the kube-apiserver audit log is enabled, every engineer’s actions can be un
 ## Contacts
 
 Need help? Message us in our [Telegram chat](https://t.me/+nSELCyIX8ltlNjU6)!
+
 Contact **authors of this case**:
 
 - Aleksandr Petrov - [sanchpet](https://t.me/sanchpet)
