@@ -16,6 +16,7 @@ Docker-образы удобно использовать для сборки и
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)
 ![bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff)
 ![Debian](https://img.shields.io/badge/Debian-A81D33?logo=debian&logoColor=fff)
+![Packer](https://img.shields.io/badge/packer-%23E7EEF0.svg?logo=packer&logoColor=fff)
 
 ## Контрольные точки
 
