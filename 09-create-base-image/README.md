@@ -17,15 +17,16 @@ Docker images are convenient for building or deploying applications—but how ar
 ![bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff)
 ![Debian](https://img.shields.io/badge/Debian-A81D33?logo=debian&logoColor=fff)
 ![Packer](https://img.shields.io/badge/packer-%23E7EEF0.svg?logo=packer&logoColor=fff)
+![Vagrant](https://img.shields.io/badge/vagrant-%231563FF.svg?logo=vagrant&logoColor=fff)
 
 ## Milestones
 
 1. **Set up infrastructure for creating and running virtual machines:**
    - Required packages: `virt-install`, `qemu-kvm`, `libvirt-daemon-system` or equivalents if using other distributions.
    - Astra Linux image in .iso format (only version 1.7) or .ova (version 1.8, which will need to be converted to a .qcow2 disk image)—for example, from the [Easy Astra](https://easyastra.ru/resources/astralinux.php) portal.
-   - Alternative: Use `HashiCorp Packer`, which allows you to describe virtual machine creation using HashiCorp Configuration Language (also used in Terraform).
+   - Alternative: Use `HashiCorp Packer`, which allows you to describe virtual machine image creation using HashiCorp Configuration Language (also used in Terraform) and `HashiCorp Vagrant`, which allows you to describe virtual machine provisioning using Vagrantfile with HCL.
 2. **Create a virtual machine and install necessary packages:**
-   - For working with VMs via `qemu` use `virt-install`. You can connect to the VM via SSH (to obtain the IP address, use `virsh`). Necessary parameters for `virt-install` can be found in any available source. We are dealing with a standard Debian-like distribution. Peripheral devices are optional, but it's advisable to configure shared folders via `virtiofs`. In `Packer` you can map a `sharedfolder`. Install `docker.io` (or follow the official website instructions) and `debootstrap`.
+   - For working with VMs via `qemu` use `virt-install`. You can connect to the VM via SSH (to obtain the IP address, use `virsh`). Necessary parameters for `virt-install` can be found in any available source. We are dealing with a standard Debian-like distribution. Peripheral devices are optional, but it's advisable to configure shared folders via `virtiofs`. In `Vagrant` you can map a `sharedfolder`. Install `docker.io` (or follow the official website instructions) and `debootstrap`.
 3. **Create a Docker image in .tar format using debootstrap:**
    - Using `debootstrap`, set up an isolated `chroot` environment with basic packages (e.g. `ncurses-term`, `nano`, `locales`).
    - Create a file system image using `tar`.

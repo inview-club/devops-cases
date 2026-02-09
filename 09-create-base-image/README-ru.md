@@ -17,15 +17,16 @@ Docker-образы удобно использовать для сборки и
 ![bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff)
 ![Debian](https://img.shields.io/badge/Debian-A81D33?logo=debian&logoColor=fff)
 ![Packer](https://img.shields.io/badge/packer-%23E7EEF0.svg?logo=packer&logoColor=fff)
+![Vagrant](https://img.shields.io/badge/vagrant-%231563FF.svg?logo=vagrant&logoColor=fff)
 
 ## Контрольные точки
 
 1. **Настройте инфраструктуру создания и запуска виртуальных машин:**
    - Нам потребуются пакеты `virt-install`, `qemu-kvm`, `libvirt-daemon-system` и их аналоги, если используются другие дистрибутивы.
    - Образ Astra Linux в формате .iso (только 1.7) или .ova (1.8, нужно будет конвертировать его в образ диска .qcow2) - например, с портала [Easy Astra](https://easyastra.ru/resources/astralinux.php)
-   - Альтернатива - `HashiCorp Packer`, позволяющий описать создание виртуальной машины с помощью HashiCorp Configuration Language Language (используется также в Terraform).
+   - Альтернатива - `HashiCorp Packer`, позволяющий описать создание образа виртуальной машины с помощью HashiCorp Configuration Language Language (используется также в Terraform), а также `HashiCorp Vagrant`, позволяющий описать настройку виртуальной машины с помощью Vagrantfile на HCL.
 2. **Создайте виртуальную машину и установите в нее необходимые пакеты:**
-   - Для работы с ВМ через `qemu` используется `virt-install`, подключиться к ней можно по ssh (получение IP-адреса - `virsh`). Необходимые параметры для `virt-install` можно посмотреть в любом доступном источнике, нас интересует стандартный Debian-like дистрибутив, устройства периферии необязательны, но желательно настроить shared folders через `virtiofs`. В `Packer` можно смаппить `sharedfolder`. Через пакетный менеджер поставим `docker.io` (или по инструкции с официального сайта) и `debootstrap`.
+   - Для работы с ВМ через `qemu` используется `virt-install`, подключиться к ней можно по ssh (получение IP-адреса - `virsh`). Необходимые параметры для `virt-install` можно посмотреть в любом доступном источнике, нас интересует стандартный Debian-like дистрибутив, устройства периферии необязательны, но желательно настроить shared folders через `virtiofs`. В `Vagrant` можно смаппить `sharedfolder`. Через пакетный менеджер поставим `docker.io` (или по инструкции с официального сайта) и `debootstrap`.
 3. **Создайте Docker-образ в .tar формате через debootstrap:**
    - Используя `debootstrap`, внутри виртуальной машины настройте изолированное окружение `chroot` с базовыми для работы пакетами (например `ncurses-term`, `nano`, `locales`).
    - Создайте образ файловой системы с помощью `tar`.
