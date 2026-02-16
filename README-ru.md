@@ -15,7 +15,7 @@
 
 ## 👨‍💻 Актуальные кейсы
 
-<img align="right" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3o5NzBrMHpyZ2ppYTdkZ29icWYwcm8xNGRkNzNnODZqcnB0YjYzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1Pn9VCFR6LxWDJaTvq/giphy.gif" width="15%" alt="work"> 
+<img align="right" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3o5NzBrMHpyZ2ppYTdkZ29icWYwcm8xNGRkNzNnODZqcnB0YjYzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1Pn9VCFR6LxWDJaTvq/giphy.gif" width="15%" alt="work">
 
 Вы можете решать кейсы в следующем порядке:
 
@@ -27,6 +27,7 @@
 6. [Observability & Karma](06-observability-karma/README-ru.md)
 7. [n8n & Ollama](07-n8n-ollama/README-ru.md)
 8. [Kubernetes: идентификация пользователей (Keycloak + OIDC)](08-k8s-keycloak-oidc)
+9. [Создание Docker-образа на основе виртуальной машины Astra Linux](09-create-base-image)
 
 ## 🗝️ Как отправить решение на GitHub
 

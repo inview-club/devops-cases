@@ -15,7 +15,7 @@ All our cases can be implemented locally, requiring only time and the ability to
 
 ## 👨‍💻 Current cases
 
-<img align="right" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3o5NzBrMHpyZ2ppYTdkZ29icWYwcm8xNGRkNzNnODZqcnB0YjYzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1Pn9VCFR6LxWDJaTvq/giphy.gif" width="15%" alt="work"> 
+<img align="right" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3o5NzBrMHpyZ2ppYTdkZ29icWYwcm8xNGRkNzNnODZqcnB0YjYzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1Pn9VCFR6LxWDJaTvq/giphy.gif" width="15%" alt="work">
 
 You can solve our cases in the next order:
 
@@ -27,6 +27,7 @@ You can solve our cases in the next order:
 6. [Observability & Karma](06-observability-karma/README.md)
 7. [n8n & Ollama](07-n8n-ollama/README.md)
 8. [Kubernetes: user identification (Keycloak + OIDC)](08-k8s-keycloak-oidc)
+9. [KCreating a Docker Image Based on Astra Linux Virtual Machine](09-create-base-image)
 
 ## 🗝️ How to submit a solution on GitHub
 
