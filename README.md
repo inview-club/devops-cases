@@ -27,6 +27,7 @@ You can solve our cases in the next order:
 6. [Observability & Karma](06-observability-karma/README.md)
 7. [n8n & Ollama](07-n8n-ollama/README.md)
 8. [Kubernetes: user identification (Keycloak + OIDC)](08-k8s-keycloak-oidc)
+9. [Docker: Create Base Image](09-create-base-image)
 
 ## 🗝️ How to submit a solution on GitHub
 
