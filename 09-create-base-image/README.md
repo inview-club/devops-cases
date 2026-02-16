@@ -1,0 +1,63 @@
+# Case №9 - Creating a Docker Image Based on Astra Linux Virtual Machine
+
+<div align="center">
+
+  ![Result diagram dark](img/09-create-base-image-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/09-create-base-image-light.png#gh-light-mode-only)
+
+</div>
+
+- [Case №9 - Creating a Docker Image Based on Astra Linux Virtual Machine](#case-9---creating-a-docker-image-based-on-astra-linux-virtual-machine)
+  - [Authors](#authors)
+  - [Goal](#goal)
+  - [Stack](#Stack)
+  - [Checkpoints](#checkpoints)
+  - [Result](#result)
+  - [Contacts](#contacts)
+
+## Authors
+
+[![Author](https://img.shields.io/badge/cmdrcrm-000000.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/CommanderCRM)
+
+## Goal
+
+Docker images are convenient for building or deploying applications—but how are they created if the distribution isn't available on Docker Hub or other sources? Let's explore the steps to create an image using a file system, standard Debian-like utilities, and archiving.
+
+## Stack
+
+![Docker](https://img.shields.io/badge/Docker-2560FF?logo=docker&logoColor=white)
+![bash](https://img.shields.io/badge/Bash-000000?logo=gnubash&logoColor=white)
+![Debian](https://img.shields.io/badge/Debian-A81D33?logo=debian&logoColor=white)
+![Packer](https://img.shields.io/badge/Packer-%231563FF.svg?logo=packer&logoColor=white)
+![Vagrant](https://img.shields.io/badge/Vagrant-%231563FF.svg?logo=vagrant&logoColor=white)
+
+## Checkpoints
+
+### Basic
+1. **Set up infrastructure for creating and running virtual machines:**
+   - Required packages: `virt-install`, `qemu-kvm`, `libvirt-daemon-system` or equivalents if using other distributions.
+   - Astra Linux image in .iso format (only version 1.7) or .ova (version 1.8, which will need to be converted to a .qcow2 disk image)—for example, from the [Easy Astra](https://easyastra.ru/resources/astralinux.php) portal.
+2. **Create a virtual machine and install necessary packages:**
+   - For working with VMs via `qemu` use `virt-install`. You can connect to the VM via SSH (to obtain the IP address, use `virsh`). Necessary parameters for `virt-install` can be found in any available source. We are dealing with a standard Debian-like distribution. Peripheral devices are optional, but it's advisable to configure shared folders via `virtiofs`.  Install `docker.io` (or follow the official website instructions) and `debootstrap`.
+3. **Create a Docker image in .tar format using debootstrap:**
+   - Using `debootstrap`, set up an isolated `chroot` environment with basic packages (e.g. `ncurses-term`, `nano`, `locales`).
+   - Create a file system image using `tar`.
+   - Transfer the `tar` file to the host operating system and mount it via `docker import`.
+
+### Advanced
+1. After installing required packages, use `HashiCorp Packer`, which allows you to describe virtual machine image creation using HashiCorp Configuration Language (also used in Terraform)
+2. Instead of using `virt-install` use `HashiCorp Vagrant`, which allows you to describe virtual machine provisioning using Vagrantfile with HCL. In `Vagrant` you can map a `sharedfolder` if external storage is needed.
+3. The same as in normal version.
+
+## Result
+
+The host operating system contains a Docker image based on Astra Linux. The image can be run and includes a command shell.
+
+## Contacts
+
+Need help? Write to [our Telegram chat](https://t.me/+nSELCyIX8ltlNjU6)!
