@@ -1,5 +1,11 @@
 # Case №9 - Creating a Docker Image Based on Astra Linux Virtual Machine
 
+<div align="center">
+
+  ![Result diagram light](img/09-create-base-image-light.jpg#gh-light-mode-only)
+
+</div>
+
 - [Case №9 - Creating a Docker Image Based on Astra Linux Virtual Machine](#case-9---creating-a-docker-image-based-on-astra-linux-virtual-machine)
   - [Purpose](#purpose)
   - [Tech Stack](#tech-stack)

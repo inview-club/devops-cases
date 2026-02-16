@@ -1,5 +1,11 @@
 # Case №9 - Создание Docker-образа на основе виртуальной машины Astra Linux
 
+<div align="center">
+
+  ![Result diagram light](img/09-create-base-image-light.jpg#gh-light-mode-only)
+
+</div>
+
 - [Case №9 - Создание Docker-образа на основе виртуальной машины Astra Linux](#case-9---создание-docker-образа-на-основе-виртуальной-машины-astra-linux-18)
   - [Цель](#цель)
   - [Стэк](#стэк)
