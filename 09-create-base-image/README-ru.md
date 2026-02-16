@@ -1,5 +1,17 @@
 # Case №9 - Создание Docker-образа на основе виртуальной машины Astra Linux
 
+<div align="center">
+
+  ![Result diagram dark](img/09-create-base-image-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/09-create-base-image-light.png#gh-light-mode-only)
+
+</div>
+
 - [Case №9 - Создание Docker-образа на основе виртуальной машины Astra Linux](#case-9---создание-docker-образа-на-основе-виртуальной-машины-astra-linux-18)
   - [Цель](#цель)
   - [Стэк](#стэк)
@@ -13,14 +25,15 @@ Docker-образы удобно использовать для сборки и
 
 ## Стэк
 
-![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)
-![bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff)
-![Debian](https://img.shields.io/badge/Debian-A81D33?logo=debian&logoColor=fff)
-![Packer](https://img.shields.io/badge/packer-%23E7EEF0.svg?logo=packer&logoColor=fff)
-![Vagrant](https://img.shields.io/badge/vagrant-%231563FF.svg?logo=vagrant&logoColor=fff)
+![Docker](https://img.shields.io/badge/Docker-2560FF?logo=docker&logoColor=white)
+![bash](https://img.shields.io/badge/Bash-000000?logo=gnubash&logoColor=white)
+![Debian](https://img.shields.io/badge/Debian-A81D33?logo=debian&logoColor=white)
+![Packer](https://img.shields.io/badge/packer-%231563FF.svg?logo=packer&logoColor=white)
+![Vagrant](https://img.shields.io/badge/vagrant-%231563FF.svg?logo=vagrant&logoColor=white)
 
-## Контрольные точки (стандарт)
+## Контрольные точки
 
+### Базовый
 1. **Настройте инфраструктуру создания и запуска виртуальных машин:**
    - Нам потребуются пакеты `virt-install`, `qemu-kvm`, `libvirt-daemon-system` и их аналоги, если используются другие дистрибутивы.
    - Образ Astra Linux в формате .iso (только 1.7) или .ova (1.8, нужно будет конвертировать его в образ диска .qcow2) - например, с портала [Easy Astra](https://easyastra.ru/resources/astralinux.php)
@@ -31,8 +44,7 @@ Docker-образы удобно использовать для сборки и
    - Создайте образ файловой системы с помощью `tar`.
    - Отправьте `tar` в хостовую операционную систему и смонтируйте его через `docker import`.
 
-## Контрольные точки (продвинутый)
-
+### Продвинутый
 1. После установки необходимых пакетов используем `HashiCorp Packer`, который позволяет описать создание образа виртуальной машины с помощью HashiCorp Configuration Language Language (используется также в Terraform).
 2. Вместо `virt-install` используем `HashiCorp Vagrant`, который позволяет описать настройку виртуальной машины с помощью Vagrantfile на HCL. В `Vagrant` можно смаппить `sharedfolder`, если нужно использовать внешнюю память.
 3. Все то же самое, что и в стандартной версии.
