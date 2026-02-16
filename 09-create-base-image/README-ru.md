@@ -28,8 +28,8 @@ Docker-образы удобно использовать для сборки и
 ![Docker](https://img.shields.io/badge/Docker-2560FF?logo=docker&logoColor=white)
 ![bash](https://img.shields.io/badge/Bash-000000?logo=gnubash&logoColor=white)
 ![Debian](https://img.shields.io/badge/Debian-A81D33?logo=debian&logoColor=white)
-![Packer](https://img.shields.io/badge/packer-%231563FF.svg?logo=packer&logoColor=white)
-![Vagrant](https://img.shields.io/badge/vagrant-%231563FF.svg?logo=vagrant&logoColor=white)
+![Packer](https://img.shields.io/badge/Packer-%231563FF.svg?logo=packer&logoColor=white)
+![Vagrant](https://img.shields.io/badge/Vagrant-%231563FF.svg?logo=vagrant&logoColor=white)
 
 ## Контрольные точки
 

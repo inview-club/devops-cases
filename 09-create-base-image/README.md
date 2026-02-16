@@ -13,11 +13,16 @@
 </div>
 
 - [Case №9 - Creating a Docker Image Based on Astra Linux Virtual Machine](#case-9---creating-a-docker-image-based-on-astra-linux-virtual-machine)
+  - [Authors](#authors)
   - [Goal](#goal)
   - [Stack](#Stack)
   - [Checkpoints](#checkpoints)
   - [Result](#result)
   - [Contacts](#contacts)
+
+## Authors
+
+[![Author](https://img.shields.io/badge/cmdrcrm-000000.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/CommanderCRM)
 
 ## Goal
 
@@ -28,8 +33,8 @@ Docker images are convenient for building or deploying applications—but how ar
 ![Docker](https://img.shields.io/badge/Docker-2560FF?logo=docker&logoColor=white)
 ![bash](https://img.shields.io/badge/Bash-000000?logo=gnubash&logoColor=white)
 ![Debian](https://img.shields.io/badge/Debian-A81D33?logo=debian&logoColor=white)
-![Packer](https://img.shields.io/badge/packer-%231563FF.svg?logo=packer&logoColor=white)
-![Vagrant](https://img.shields.io/badge/vagrant-%231563FF.svg?logo=vagrant&logoColor=white)
+![Packer](https://img.shields.io/badge/Packer-%231563FF.svg?logo=packer&logoColor=white)
+![Vagrant](https://img.shields.io/badge/Vagrant-%231563FF.svg?logo=vagrant&logoColor=white)
 
 ## Checkpoints
 
