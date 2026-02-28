@@ -16,6 +16,8 @@
   - [Goal](#goal)
   - [Stack](#stack)
   - [Checkpoints](#checkpoints)
+    - [Basic](#basic)
+    - [Advanced](#advanced)
   - [Result](#result)
   - [Contacts](#contacts)
 
@@ -31,6 +33,8 @@ Give the ML engineering team the opportunity not to depend on external web servi
 ![Redis](https://img.shields.io/badge/Redis-FF4438.svg?style=for-the-badge&logo=redis&logoColor=white)
 
 ## Checkpoints
+
+### Basic
 
 1. Install [Postgres](https://www.postgresql.org/docs):
    - Used for storing n8n workflows and credentials.
@@ -48,6 +52,33 @@ Give the ML engineering team the opportunity not to depend on external web servi
 6. Create a new workflow:
    - Flow: Chat Message → AI Agent → Chat Model (Ollama).
    - Store chat sessions in external storage (Redis or database) so the agent can retain context between requests.
+
+### Advanced
+
+<div align="center">
+
+  ![Result diagram dark](img/07-n8n-aiops-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/07-n8n-aiops-light.png#gh-light-mode-only)
+
+</div>
+
+1. Install [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/), [Alertmanager](https://github.com/prometheus/alertmanager), [Node Exporter](https://prometheus.io/docs/guides/node-exporter/)
+2. Configure some basic alerting rules:
+   - For inspiration, you can use sources like:
+     - [Alert and route testing for Alertmanager](https://prometheus.io/webtools/alerting/routing-tree-editor/).
+     - A huge [list](https://samber.github.io/awesome-prometheus-alerts/rules) of alerts covering many domains.
+     - [The same](https://github.com/monitoring-mixins/website/tree/master/assets) as the previous, but with more examples.
+4. Configure Alertmanager to send alerts to the n8n Webhook.
+5. Create a new workflow:
+   - Add Webhook node that accepts the payload from Alertmanager.
+   - Add a step that parses the alert payload and extracts the key parameters.
+   - Add an LLM node that generates a human‑readable incident description and a brief summary for a chat message.
+   - Add a step that creates a Incidents in GitLab with the required fields and context.
 
 ## Result
 
