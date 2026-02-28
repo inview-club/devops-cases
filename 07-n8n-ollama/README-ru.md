@@ -16,6 +16,8 @@
   - [Цель](#цель)
   - [Стэк](#стэк)
   - [Чекпоинты](#чекпоинты)
+    - [Базовый](#базовый)
+    - [Продвинутый](#продвинутый)
   - [Результат](#результат)
   - [Контакты](#контакты)
 
@@ -32,6 +34,7 @@
 
 ## Чекпоинты
 
+### Базовый
 1. Установить [Postgres](https://www.postgresql.org/docs):
    - Используется для хранения воркфлоу и кредов n8n.
 2. Установить [Redis](https://redis.io/docs/):
@@ -48,6 +51,35 @@
 6. Создать новый воркфлоу:
    - Вокрфлоу: Chat Message → AI Agent → Chat Model (Ollama).
    - Сессии чата сохранять во внешнем хранилище (Redis/БД), чтобы агент «помнил» контекст и между запросами.
+
+### Продвинутый
+
+<div align="center">
+
+  ![Result diagram dark](img/07-n8n-aiops-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/07-n8n-aiops-light.png#gh-light-mode-only)
+
+</div>
+
+1. Установить [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/), [Alertmanager](https://github.com/prometheus/alertmanager), [Node Exporter](https://prometheus.io/docs/guides/node-exporter/)
+2. Настроить несколько базовых правил алертинга:
+   - Скорее всего, если вы устанавливали Victoria Metrics по одному из мануалов, у вас уже будут преднастроенные правила.
+   - В поисках вдохновения можете воспользоваться источниками:
+     - [Проверка алертов и маршрутов для Alertmanager](https://prometheus.io/webtools/alerting/routing-tree-editor/).
+     - Огромный [список](https://samber.github.io/awesome-prometheus-alerts/rules) алертов по многим областям.
+     - [То же самое](https://github.com/monitoring-mixins/website/tree/master/assets), что в предыдущем пункте, но больше примеров.
+   - За алертинг в Victoria Metrics отвечает компонент vmalert, он должен быть настроен на отправку алертов в Alertmanager.
+3. Настроить Alertmanager на отправку алертов в n8n Webhook.
+4. Создать новый workflow:
+   - Добавить Webhook‑ноду, которая принимает payload от Alertmanager.
+   - Добавить шаг, который парсит payload алерта и извлекает ключевые параметры.
+   - Добавить LLM‑ноду, которая формирует человекочитаемое описание инцидента и краткое резюме для сообщения в чат.
+   - Добавить шаг, который создаёт задачу Incidents в GitLab с нужными полями и контекстом.
 
 ## Результат
 
