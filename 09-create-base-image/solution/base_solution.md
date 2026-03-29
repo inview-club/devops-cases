@@ -129,7 +129,14 @@ liza@liza-ai-pc:~$ sudo chown libvirt-qemu:libvirt /var/lib/libvirt/images/astra
 - Разворачиваем минимально рабочую файловую систему Astra Linux внутри папки ~/astra-rootfs
   ```
   sudo debootstrap --no-check-gpg --variant=minbase --include=vim,locales orel ~/astra-rootfs https://download.astralinux.ru/astra/stable/2.12_x86-64/repository
-  sudo apt install ncurses-term
+  sudo chroot ~/astra-rootfs /bin/bash
+
+  export LC_ALL=C
+  apt update 
+  apt install -y ncurses-term
+  dpkg-reconfigure locales 
+
+  exit
   ```
 - Упаковываем систему в архив
   ```
@@ -150,6 +157,78 @@ liza@liza-ai-pc:~$ sudo chown libvirt-qemu:libvirt /var/lib/libvirt/images/astra
   astra-linux   base      450ba603cc61   24 seconds ago   263MB
   liza@liza-ai-pc:~/work/itmo/devops/devops-cases$ sudo docker run -it astra-linux:base cat /etc/astra_version
   CE 2.12.46 (orel)
+  liza@liza-ai-pc:~/work/itmo/devops/devops-cases/09-create-base-image/solution$ sudo docker run -it astra-linux:base /bin/bash
+  root@caa97378671e:/# ls -al
+  total 72
+  drwxr-xr-x   1 root root 4096 Mar 29 21:19 .
+  drwxr-xr-x   1 root root 4096 Mar 29 21:19 ..
+  -rwxr-xr-x   1 root root    0 Mar 29 21:19 .dockerenv
+  drwxr-xr-x   2 root root 4096 Mar 29 16:24 bin
+  drwxr-xr-x   2 root root 4096 Apr  7  2023 boot
+  drwxr-xr-x   5 root root  360 Mar 29 21:19 dev
+  drwxr-xr-x   1 root root 4096 Mar 29 21:19 etc
+  drwxr-xr-x   2 root root 4096 Apr  7  2023 home
+  drwxr-xr-x   8 root root 4096 Mar 29 16:24 lib
+  drwxr-xr-x   2 root root 4096 Mar 29 16:24 lib64
+  drwxr-xr-x   2 root root 4096 Mar 29 16:24 media
+  drwxr-xr-x   2 root root 4096 Apr  7  2023 mnt
+  drwxr-xr-x   2 root root 4096 Mar 29 16:24 opt
+  dr-xr-xr-x 691 root root    0 Mar 29 21:19 proc
+  drwxr-x---   2 root root 4096 Mar 29 16:24 root
+  drwxr-xr-x   4 root root 4096 Mar 29 16:24 run
+  drwxr-xr-x   2 root root 4096 Mar 29 16:24 sbin
+  drwxr-xr-x   2 root root 4096 Mar 29 16:24 srv
+  dr-xr-xr-x  13 root root    0 Mar 29 21:19 sys
+  drwxrwxrwt   2 root root 4096 Mar 29 16:24 tmp
+  drwxr-xr-x  10 root root 4096 Mar 29 16:24 usr
+  drwxr-xr-x  11 root root 4096 Mar 29 16:24 var
+  root@caa97378671e:/# vim --version
+  VIM - Vi IMproved 9.0 (2022 Jun 28, compiled Oct 15 2020 16:00:06)
+  Included patches: 1-1000, 1087, 1117-1118, 1129, 1165
+  Modified by team+vim@tracker.debian.org
+  Compiled by team+vim@tracker.debian.org
+  Huge version without GUI.  Features included (+) or not (-):
+  +acl               +file_in_path      +mouse_urxvt       -tag_any_white
+  +arabic            +find_in_path      +mouse_xterm       -tcl
+  +autocmd           +float             +multi_byte        +termguicolors
+  +autochdir         +folding           +multi_lang        +terminal
+  -autoservername    -footer            -mzscheme          +terminfo
+  -balloon_eval      +fork()            +netbeans_intg     +termresponse
+  +balloon_eval_term +gettext           +num64             +textobjects
+  -browse            -hangul_input      +packages          +textprop
+  ++builtin_terms    +iconv             +path_extra        +timers
+  +byte_offset       +insert_expand     -perl              +title
+  +channel           +ipv6              +persistent_undo   -toolbar
+  +cindent           +job               +popupwin          +user_commands
+  -clientserver      +jumplist          +postscript        +vartabs
+  -clipboard         +keymap            +printer           +vertsplit
+  +cmdline_compl     +lambda            +profile           +vim9script
+  +cmdline_hist      +langmap           -python            +viminfo
+  +cmdline_info      +libcall           -python3           +virtualedit
+  +comments          +linebreak         +quickfix          +visual
+  +conceal           +lispindent        +reltime           +visualextra
+  +cryptv            +listcmds          +rightleft         +vreplace
+  +cscope            +localmap          -ruby              +wildignore
+  +cursorbind        -lua               +scrollbind        +wildmenu
+  +cursorshape       +menu              +signs             +windows
+  +dialog_con        +mksession         +smartindent       +writebackup
+  +diff              +modify_fname      +sodium            -X11
+  +digraphs          +mouse             -sound             -xfontset
+  -dnd               -mouseshape        +spell             -xim
+  -ebcdic            +mouse_dec         +startuptime       -xpm
+  +emacs_tags        +mouse_gpm         +statusline        -xsmp
+  +eval              -mouse_jsbterm     -sun_workshop      -xterm_clipboard
+  +ex_extra          +mouse_netterm     +syntax            -xterm_save
+  +extra_search      +mouse_sgr         +tag_binary        
+  -farsi             -mouse_sysmouse    -tag_old_static    
+     system vimrc file: "/etc/vim/vimrc"
+       user vimrc file: "$HOME/.vimrc"
+   2nd user vimrc file: "~/.vim/vimrc"
+        user exrc file: "$HOME/.exrc"
+         defaults file: "$VIMRUNTIME/defaults.vim"
+    fall-back for $VIM: "/usr/share/vim"
+  Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H -Wdate-time -g -O2 -fdebug-prefix-map=/opt/build/vim-9.0.1000=. -fstack-protector-strong -Wformat -Werror=format-security -DSYS_VIMRC_FILE=\"/etc/vim/vimrc\" -DSYS_GVIMRC_FILE=\"/etc/vim/gvimrc\" -D_REENTRANT -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 
+  Linking: gcc -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -o vim -lm -ltinfo -lsodium -lrt -lacl -lattr -lgpm -ldl 
   ```
 
 ## Проблемы
