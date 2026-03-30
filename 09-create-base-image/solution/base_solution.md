@@ -1,4 +1,4 @@
-# Базовый уровень
+# Лабораторная работа №1 (Вариант 1, кейс №9). Базовый уровень
 
 ## Подготовка к установке и настройке ВМ
 Для установки виртуальной машины были скачаны следующие библиотеки:
@@ -232,69 +232,11 @@ liza@liza-ai-pc:~$ sudo chown libvirt-qemu:libvirt /var/lib/libvirt/images/astra
   ```
 
 ## Проблемы
-- Проблема с Live-образом: Изначально использованный образ alse-1.7.8.6-6.1.livecd.iso предназначен для запуска системы без установки. В его загрузочном меню отсутствовали пункты Install / Graphical Install, а запуск astra-install из терминала внутри Live-сессии не привел к успеху из-за отсутствия необходимых скриптов установки в данной сборке.
+- Проблема с Live-образом: Изначально использованный образ alse-1.7.8.6-6.1.livecd.iso предназначен для запуска системы без установки. В его загрузочном меню отсутствовали пункты Install / Graphical Install, а запуск astra-install из терминала внутри Live-сессии не сработал из-за отсутствия необходимых скриптов установки в данной сборке.
 - Ошибка «No bootable device»: Возникала при попытке повторного запуска ВМ после сброса, так как приоритет загрузки смещался на пустой виртуальный диск. Решено добавлением флага --boot cdrom,hd в команду virt-install.
 - Отсутствие virtiofsd: При попытке настроить shared folder через virtiofs возникла ошибка отсутствия системного демона. Требуется предварительная установка пакета virtiofsd (или qemu-system-common) на хосте.
-- В астре все автоматически писалось капслоком.
+- В Astra все автоматически писалось капслоком.
 
-# Продвинутый уровень
-## Подготовка окружения
-
-Чтобы освободить ресурсы, остановим и удалим созданную ВМ
-```
-liza@liza-ai-pc:~$ virsh destroy astra-vm
-Domain 'astra-vm' destroyed
-
-liza@liza-ai-pc:~$ virsh undefine astra-vm --remove-all-storage
-Domain 'astra-vm' has been undefined
-Volume 'vda'(/var/lib/libvirt/images/astra.qcow2) removed.
-
-```
-
-Установим необходимые пакеты
-Vagrant и Packer пришлось скачать бинарниками с сайта:
-```
-liza@liza-ai-pc:~$ unzip Downloads/vagrant_2.4.9_linux_amd64.zip 
-Archive:  Downloads/vagrant_2.4.9_linux_amd64.zip
-  inflating: LICENSE.txt             
-  inflating: vagrant                 
-liza@liza-ai-pc:~$ ls -l ~/vagrant
--rwxr-xr-x 1 liza liza 47811064 Aug 21  2025 /home/liza/vagrant
-liza@liza-ai-pc:~$ sudo mv ~/vagrant /usr/local/bin/
-[sudo] password for liza: 
-liza@liza-ai-pc:~$ vagrant --version
-Vagrant 2.4.9
-```
-```
-liza@liza-ai-pc:~/Downloads$ unzip packer_1.15.1_linux_amd64.zip 
-Archive:  packer_1.15.1_linux_amd64.zip
-  inflating: LICENSE.txt             
-  inflating: packer                  
-liza@liza-ai-pc:~/Downloads$ sudo mv packer
-packer                         packer_1.15.1_linux_amd64.zip  
-liza@liza-ai-pc:~/Downloads$ sudo mv packer /usr/local/bin/
-liza@liza-ai-pc:~/Downloads$ packer --version
-Packer v1.15.1
-
-liza@liza-ai-pc:~$ sudo apt install -y build-essential libvirt-dev
-liza@liza-ai-pc:~$ vagrant plugin install vagrant-libvirt --plugin-clean-sources --plugin-source https://rubygems.org
-```
-
-Снова создадим образ в нужной папке
-```
-sudo qemu-img convert -O qcow2 Astra-Linux-1.8.5.46-SE-orel-noGUI-disk001.vmdk /var/lib/libvirt/images/astra.qcow2
-```
-
-Через Packer:
-
-- создадим файл `astra.pkr.hcl`, который будет запускать все команды, настраивать ВМ и копировать результат в нашу папку:
-  ```
-  ```
-- запустим 
-  ```
-  liza@liza-ai-pc:~/work/itmo/devops/devops-cases/09-create-base-image/solution$ packer init astra.pkr.hcl
-  Installed plugin github.com/hashicorp/qemu v1.1.3 in "/home/liza/.config/packer/plugins/github.com/hashicorp/qemu/packer-plugin-qemu_v1.1.3_x5.0_linux_amd64"
-  ```
-
-## Проблемы
-- Установка пакетов через бинарники и тяжелые обходы из-за проблем на сервере
+# Выводы
+В хостовой ОС присутствует Docker-образ на основе Astra Linux. Образ можно запустить, в нем есть командная оболочка.
+При создании Docker-образа надо быть внимательным и терпиливым, и все получится почти сразу :) Продвинутый уровень мне не поддался, к сожалению, из-за SSH Timeout, буду биться уже вне рамок факультатива с ним.
