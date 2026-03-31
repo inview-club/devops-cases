@@ -30,3 +30,13 @@
 Запаковываем её в tar-архив:
 
 ![Архивация файловой системы](https://raw.githubusercontent.com/warmike01/devops-cases/refs/heads/main/09-create-base-image/img/case7.PNG)
+
+Передаем по SSH на компьютер с Docker:
+
+
+![Архивация файловой системы](https://raw.githubusercontent.com/warmike01/devops-cases/refs/heads/main/09-create-base-image/img/case8.PNG)
+
+Запускаем контейнер:
+
+
+![Запуск контейнера](https://raw.githubusercontent.com/warmike01/devops-cases/refs/heads/main/09-create-base-image/img/case9.PNG)
