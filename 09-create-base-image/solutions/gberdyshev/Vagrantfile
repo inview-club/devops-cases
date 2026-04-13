@@ -1,0 +1,24 @@
+Vagrant.configure("2") do |config|
+  config.vm.provider "libvirt" do |libvirt|
+    libvirt.memory = 4096
+    libvirt.cpus = 2
+    libvirt.memorybacking :access, mode: "shared" # for synced folders
+  end
+
+  config.vm.box = "astra18"
+  config.vm.synced_folder "./share", "/srv", type: "virtiofs"
+
+  config.vm.provision "shell", inline: <<-SHELL
+     export DEBIAN_FRONTEND=noninteractive
+     sudo apt-get update
+     sudo apt-get install -y debootstrap docker.io
+     sudo rm -r /var/docker-chroot
+
+     sudo debootstrap --include ncurses-term,locales,vim,gawk \
+      --components=main,contrib,non-free 1.8_x86-64 \
+      /var/docker-chroot \
+      http://dl.astralinux.ru/astra/stable/1.8_x86-64/repository-main
+
+     sudo tar -C /var/docker-chroot/ -cf /srv/chroot.tar .
+  SHELL
+end
