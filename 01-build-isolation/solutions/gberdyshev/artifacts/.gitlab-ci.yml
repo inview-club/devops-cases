@@ -1,0 +1,66 @@
+stages:
+  - proxy_login
+  - build
+  - login
+  - push
+  - cleanup
+
+login_nexus_proxy:
+  stage: proxy_login
+  script:
+    - echo 'Login to Nexus proxy...'
+    - docker login ${NEXUS_PROXY_HOST} -u ${NEXUS_USER} -p ${NEXUS_PASSWORD}
+  rules:
+    - if: '$CLEANUP_JOB == "true"'
+      when: never
+    - when: on_success
+
+build_docker:
+  stage: build
+  script:
+    - export VERSION=$(date +'%d.%m.%Y')-$CI_PIPELINE_IID
+    - echo "# CHANGELOG ver. $VERSION" > CHANGELOG.md
+    - git log -n 5 --pretty=format:"* %h - %s (%an)" >> CHANGELOG.md
+    - echo "Build docker image... (ver. $VERSION)"
+    - docker build -t rest-api-cbr:$VERSION -t rest-api-cbr:latest .
+  rules:
+    - if: '$CLEANUP_JOB == "true"'
+      when: never
+    - when: on_success
+  artifacts:
+    paths:
+      - CHANGELOG.md
+    when: on_success
+    access: all
+    expire_in: 30 days
+
+login_nexus:
+  stage: login
+  script:
+    - echo 'Login to Nexus...'
+    - docker login ${NEXUS_HOST} -u ${NEXUS_USER} -p ${NEXUS_PASSWORD}
+  rules:
+    - if: '$CLEANUP_JOB == "true"'
+      when: never
+    - when: on_success
+
+push_nexus:
+  stage: push
+  script:
+    - echo 'Add tag and push image to Nexus...'
+    - docker tag rest-api-cbr:latest ${NEXUS_HOST}/rest-api-cbr
+    - docker push ${NEXUS_HOST}/rest-api-cbr
+  rules:
+    - if: '$CLEANUP_JOB == "true"'
+      when: never
+    - when: on_success
+
+cleanup_old_image:
+  stage: cleanup
+  script:
+    - echo 'Cleanup docker image...'
+    - docker rmi ${NEXUS_HOST}/rest-api-cbr:latest
+  rules:
+    - if: '$CLEANUP_JOB == "true"'
+  
+
