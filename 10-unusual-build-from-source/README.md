@@ -1,5 +1,17 @@
 # Case №10 - Unusual Build from Source of the xsd Component
 
+<div align="center">
+
+  ![Result diagram dark](img/10-unusual-build-from-source-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div align="center">
+
+  ![Result diagram light](img/10-unusual-build-from-source-light.png#gh-light-mode-only)
+
+</div>
+
 - [Case №10 - Unusual Build from Source of the xsd Component]
 (#case-10---unusual-build-from-source-of-the-xsd-component)
   - [Authors](#authors)
