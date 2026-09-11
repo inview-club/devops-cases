@@ -26,9 +26,9 @@
 5. [Whitespots](05-whitespots/README-ru.md)
 6. [Observability & Karma](06-observability-karma/README-ru.md)
 7. [n8n & Ollama](07-n8n-ollama/README-ru.md)
-8. [Kubernetes: идентификация пользователей (Keycloak + OIDC)](08-k8s-keycloak-oidc)
-9. [Docker: создание базового образа](09-create-base-image)
-10. [xsd: необычная сборка из исходников](10-unusual-build-from-source)
+8. [Kubernetes: идентификация пользователей (Keycloak + OIDC)](08-k8s-keycloak-oidc/README-ru.md)
+9. [Docker: создание базового образа](09-create-base-image/README-ru.md)
+10. [xsd: необычная сборка из исходников](10-unusual-build-from-source/README-ru.md)
 
 ## 🗝️ Как отправить решение на GitHub
 

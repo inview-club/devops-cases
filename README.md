@@ -26,9 +26,9 @@ You can solve our cases in the next order:
 5. [Whitespots](05-whitespots/README.md)
 6. [Observability & Karma](06-observability-karma/README.md)
 7. [n8n & Ollama](07-n8n-ollama/README.md)
-8. [Kubernetes: user identification (Keycloak + OIDC)](08-k8s-keycloak-oidc)
-9. [Docker: Create Base Image](09-create-base-image)
-10. [xsd: Unusual Build From Source](09-create-base-image)
+8. [Kubernetes: user identification (Keycloak + OIDC)](08-k8s-keycloak-oidc/README.md)
+9. [Docker: Create Base Image](09-create-base-image/README.md)
+10. [xsd: Unusual Build From Source](10-unusual-build-from-source/README.md)
 
 ## 🗝️ How to submit a solution on GitHub
 
