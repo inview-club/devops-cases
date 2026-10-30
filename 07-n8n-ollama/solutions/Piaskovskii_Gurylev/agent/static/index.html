@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Локальный агент</title>
+<style>
+  :root {
+    --bg: #f5f4f0; --panel: #fff; --text: #1d1d1b; --muted: #7a776f;
+    --line: #e2dfd7; --accent: #2f6f5e; --on-accent: #fff; --bot: #ecebe5; --err: #b3402a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141513; --panel: #1c1d1a; --text: #ecebe6; --muted: #8f8c84;
+      --line: #2e2f2b; --accent: #5fae96; --on-accent: #0f1a16; --bot: #262723; --err: #e2775f;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body { background: var(--bg); color: var(--text);
+         font: 15px/1.5 system-ui, "Segoe UI", Roboto, sans-serif; }
+  .app { max-width: 760px; height: 100%; margin: 0 auto; padding: 0 16px;
+         display: flex; flex-direction: column; }
+  header { display: flex; align-items: center; gap: 10px; padding: 14px 0;
+           border-bottom: 1px solid var(--line); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); }
+  .dot.ok { background: var(--accent); }
+  .dot.bad { background: var(--err); }
+  .title { font-weight: 600; }
+  .sub { color: var(--muted); font-size: 13px; }
+  .grow { flex: 1; }
+  input, textarea, button { font: inherit; color: var(--text); }
+  .session { width: 130px; padding: 6px 10px; border: 1px solid var(--line);
+             border-radius: 8px; background: var(--panel); }
+  button { padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px;
+           background: var(--panel); cursor: pointer; }
+  button:disabled { opacity: .5; cursor: default; }
+  #log { flex: 1; overflow-y: auto; padding: 18px 0;
+         display: flex; flex-direction: column; gap: 10px; }
+  .msg { max-width: 80%; padding: 9px 13px; border-radius: 14px;
+         white-space: pre-wrap; overflow-wrap: anywhere; }
+  .user { align-self: flex-end; background: var(--accent); color: var(--on-accent); }
+  .bot { align-self: flex-start; background: var(--bot); }
+  .wait { color: var(--muted); font-style: italic; }
+  .err { align-self: center; color: var(--err); font-size: 13px; }
+  .empty { margin: auto; color: var(--muted); text-align: center; }
+  form { display: flex; gap: 8px; padding: 12px 0 16px; border-top: 1px solid var(--line); }
+  textarea { flex: 1; resize: none; height: 46px; padding: 11px 12px;
+             border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+  textarea:focus { outline: none; border-color: var(--accent); }
+  .send { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  @media (max-width: 560px) {
+    header { flex-wrap: wrap; }
+    .grow { flex-basis: 100%; height: 0; }
+    .session { flex: 1; width: auto; min-width: 0; }
+    textarea::placeholder { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <span class="dot" id="dot"></span>
+    <div>
+      <div class="title">Локальный агент</div>
+      <div class="sub" id="model">проверка…</div>
+    </div>
+    <div class="grow"></div>
+    <input class="session" id="session" title="ID диалога">
+    <button id="load" type="button">Открыть</button>
+    <button id="fresh" type="button">Новый чат</button>
+  </header>
+
+  <div id="log"></div>
+
+  <form id="form">
+    <textarea id="input" placeholder="Сообщение…"></textarea>
+    <button class="send" id="send" type="submit">Отправить</button>
+  </form>
+</div>
+
+<script>
+  const log = document.getElementById("log");
+  const input = document.getElementById("input");
+  const sendBtn = document.getElementById("send");
+  const sessionInput = document.getElementById("session");
+
+  // ID диалога запоминаем в браузере, чтобы после обновления страницы продолжить тот же чат
+  function savedSession() {
+    try { return localStorage.getItem("session_id"); } catch { return null; }
+  }
+  function saveSession(id) {
+    try { localStorage.setItem("session_id", id); } catch {}
+  }
+
+  function addMessage(text, cls) {
+    log.querySelector(".empty")?.remove();
+    const div = document.createElement("div");
+    div.className = "msg " + cls;
+    div.textContent = text;
+    log.appendChild(div);
+    log.scrollTop = log.scrollHeight;
+    return div;
+  }
+
+  function showEmpty() {
+    log.innerHTML = '<div class="empty">Диалог пуст. Напиши что-нибудь агенту.</div>';
+  }
+
+  // Подгружаем историю диалога из Postgres через /history
+  async function loadHistory() {
+    const id = sessionInput.value.trim();
+    if (!id) return;
+    saveSession(id);
+    log.innerHTML = "";
+    try {
+      const res = await fetch("/history/" + encodeURIComponent(id));
+      const items = await res.json();
+      if (!items.length) return showEmpty();
+      for (const m of items) addMessage(m.content, m.role === "user" ? "user" : "bot");
+    } catch (e) {
+      addMessage("Не удалось загрузить историю: " + e.message, "err");
+    }
+  }
+
+  async function sendMessage(text) {
+    addMessage(text, "user");
+    const pending = addMessage("агент думает…", "bot wait");
+    sendBtn.disabled = true;
+    try {
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ session_id: sessionInput.value.trim(), message: text }),
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      pending.className = "msg bot";
+      pending.textContent = data.answer;
+    } catch (e) {
+      pending.remove();
+      addMessage("Ошибка: " + e.message, "err");
+    } finally {
+      sendBtn.disabled = false;
+      input.focus();
+    }
+  }
+
+  document.getElementById("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text || sendBtn.disabled) return;
+    input.value = "";
+    sendMessage(text);
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      document.getElementById("form").requestSubmit();
+    }
+  });
+
+  document.getElementById("load").addEventListener("click", loadHistory);
+  document.getElementById("fresh").addEventListener("click", () => {
+    sessionInput.value = "chat-" + Math.random().toString(36).slice(2, 8);
+    saveSession(sessionInput.value);
+    showEmpty();
+  });
+
+  // Статус сервера и название модели
+  fetch("/health")
+    .then((r) => r.json())
+    .then((d) => {
+      document.getElementById("dot").className = "dot ok";
+      document.getElementById("model").textContent = "модель: " + d.model;
+    })
+    .catch(() => {
+      document.getElementById("dot").className = "dot bad";
+      document.getElementById("model").textContent = "сервер недоступен";
+    });
+
+  sessionInput.value = savedSession() || "test1";
+  loadHistory();
+</script>
+</body>
+</html>

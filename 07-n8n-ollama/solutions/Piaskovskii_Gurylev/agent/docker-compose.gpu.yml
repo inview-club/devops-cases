@@ -1,0 +1,11 @@
+# Оверрайд для NVIDIA GPU (Windows с Docker Desktop + WSL2, Linux с nvidia-container-toolkit).
+# docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d --build
+services:
+  ollama:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

@@ -1,0 +1,88 @@
+# Локальный LLM-агент: app (FastAPI + LangGraph) + Postgres + Redis + Ollama.
+#   docker compose up -d --build                      # CPU, всё в контейнерах
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d --build   # NVIDIA GPU
+#   OLLAMA_URL=http://host.docker.internal:11434 docker compose up -d --build app  # Ollama снаружи (macOS)
+# Параметры (необязательно): OLLAMA_MODEL, POSTGRES_PASSWORD, OLLAMA_URL
+
+name: case07-agent
+
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000" # чат без авторизации, наружу не светим
+    environment:
+      OLLAMA_URL: ${OLLAMA_URL:-http://ollama:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3:8b}
+      DB_URI: postgresql://agent:${POSTGRES_PASSWORD:-agent_pass}@postgres:5432/agent
+      REDIS_URL: redis://redis:6379
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # на Docker Desktop есть по умолчанию, на Linux нужно явно
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      # uvicorn начинает слушать порт только после lifespan, то есть после подключения к Postgres
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: agent
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-agent_pass}
+      POSTGRES_DB: agent
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      # -h 127.0.0.1 принципиален: при первой инициализации временный сервер слушает только unix-сокет,
+      # и проверка без -h рапортует "ready" раньше времени
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U agent -d agent"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:8-alpine
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama:/root/.ollama # модель ~5 ГБ, держим в томе, чтобы не качать при пересоздании
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  # Одноразовая закачка модели; после завершения контейнер остаётся в статусе Exited (0) — это нормально
+  ollama-pull:
+    image: ollama/ollama:latest
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["ollama", "pull", "${OLLAMA_MODEL:-qwen3:8b}"]
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: "no"
+
+volumes:
+  pgdata:
+  redisdata:
+  ollama:
