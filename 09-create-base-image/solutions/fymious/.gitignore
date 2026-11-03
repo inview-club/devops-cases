@@ -1,0 +1,7 @@
+iso/
+output-*/
+*.box
+*.qcow2
+*.tar
+build.log
+.vagrant/

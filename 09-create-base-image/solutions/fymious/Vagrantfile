@@ -1,0 +1,16 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "astra17"
+  config.vm.hostname = "astra-builder"
+
+  config.ssh.username   = "vagrant"
+  config.ssh.password   = "Vagrant123"
+  config.ssh.insert_key = false
+
+  config.vm.synced_folder "./share", "/vagrant", type: "rsync", rsync__auto: false
+
+  config.vm.provider :libvirt do |lv|
+    lv.memory = 2048
+    lv.cpus   = 2
+    lv.storage_pool_name = "images"
+  end
+end
