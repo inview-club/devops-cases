@@ -1,0 +1,47 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "astra" do |vm|
+    vm.vm.guest = :debian
+    vm.vm.boot_timeout = 3600
+
+    vm.ssh.username = "user"
+    vm.ssh.private_key_path = File.expand_path(
+      ".work/id_ed25519",
+      __dir__
+    )
+    vm.ssh.insert_key = false
+
+    vm.vm.synced_folder ".", "/vagrant", disabled: true
+
+    vm.vm.provider "qemu" do |qemu|
+      qemu.image_path = File.expand_path(
+        ".work/packer-final/astra.qcow2",
+        __dir__
+      )
+
+      qemu.arch = "x86_64"
+      qemu.machine = "pc,accel=tcg"
+      qemu.cpu = "max"
+      qemu.smp = "2"
+      qemu.memory = "4G"
+
+      qemu.drive_interface = "ide"
+      qemu.net_device = "e1000"
+      qemu.ssh_auto_correct = true
+    end
+
+    vm.vm.provision "shell", inline: <<-SHELL
+      set -eu
+      export DEBIAN_FRONTEND=noninteractive
+
+      getent ahostsv4 download.astralinux.ru
+
+      apt-get update --error-on=any
+      apt-get install -y docker.io debootstrap
+
+      systemctl enable --now docker
+
+      docker version
+      debootstrap --version
+    SHELL
+  end
+end
